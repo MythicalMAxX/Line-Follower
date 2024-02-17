@@ -1,8 +1,6 @@
 // Motor pin definitions
 #define MOTOR_LEFT_PIN 2
 #define MOTOR_RIGHT_PIN 3
-#define MOTOR_BACK_LEFT_PIN 4
-#define MOTOR_BACK_RIGHT_PIN 5
 
 // Sensor pin definitions
 #define SENSOR_LEFT_PIN A0
@@ -31,8 +29,6 @@ void setup() {
   // Set motor pins as output
   pinMode(MOTOR_LEFT_PIN, OUTPUT);
   pinMode(MOTOR_RIGHT_PIN, OUTPUT);
-  pinMode(MOTOR_BACK_LEFT_PIN, OUTPUT);
-  pinMode(MOTOR_BACK_RIGHT_PIN, OUTPUT);
   
   // Set sensor pins as input
   pinMode(SENSOR_LEFT_PIN, INPUT);
@@ -69,6 +65,4 @@ void loop() {
   // Apply motor speeds
   analogWrite(MOTOR_LEFT_PIN, leftSpeed);
   analogWrite(MOTOR_RIGHT_PIN, rightSpeed);
-  analogWrite(MOTOR_BACK_LEFT_PIN, leftSpeed);
-  analogWrite(MOTOR_BACK_RIGHT_PIN, rightSpeed);
 }
