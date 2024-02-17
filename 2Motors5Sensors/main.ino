@@ -4,7 +4,10 @@
 
 // Sensor pin definitions
 #define SENSOR_LEFT_PIN A0
-#define SENSOR_RIGHT_PIN A1
+#define SENSOR_CENTER_LEFT_PIN A1
+#define SENSOR_CENTER_PIN A2
+#define SENSOR_CENTER_RIGHT_PIN A3
+#define SENSOR_RIGHT_PIN A4
 
 // PID constants
 #define KP 0.1 // Proportional gain
@@ -30,16 +33,22 @@ void setup() {
   
   // Set sensor pins as input
   pinMode(SENSOR_LEFT_PIN, INPUT);
+  pinMode(SENSOR_CENTER_LEFT_PIN, INPUT);
+  pinMode(SENSOR_CENTER_PIN, INPUT);
+  pinMode(SENSOR_CENTER_RIGHT_PIN, INPUT);
   pinMode(SENSOR_RIGHT_PIN, INPUT);
 }
 
 void loop() {
   // Read sensor values
   int sensorLeft = analogRead(SENSOR_LEFT_PIN);
+  int sensorCenterLeft = analogRead(SENSOR_CENTER_LEFT_PIN);
+  int sensorCenter = analogRead(SENSOR_CENTER_PIN);
+  int sensorCenterRight = analogRead(SENSOR_CENTER_RIGHT_PIN);
   int sensorRight = analogRead(SENSOR_RIGHT_PIN);
 
   // Calculate error
-  int error = SETPOINT - (sensorLeft + sensorRight) / 2;
+  int error = SETPOINT - (sensorLeft + sensorCenterLeft + sensorCenter + sensorCenterRight + sensorRight) / 5;
 
   // Calculate PID terms
   double proportional = KP * error;
