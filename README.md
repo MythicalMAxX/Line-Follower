@@ -1,6 +1,6 @@
 # Line-Follower
 # Apart from using code make sure about these factors
-**Calibration**
+- **Calibration**
 **Motor Control**
 **Power Supply**
 **Safety Measures**
